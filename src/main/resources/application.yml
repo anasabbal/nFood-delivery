@@ -1,0 +1,41 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 578
+    username: anas.abbal10@gmail.com
+    password: .........
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: food-delivery
+
+  profiles:
+    active: dev, local
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/nDeliv}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+server:
+  servlet:
+    context-path: /api
+
+
